@@ -58,7 +58,7 @@ window.addEventListener('keyup', e => {
 let velocityY = 0
 let isGrounded = false
 const gravity = -0.01
-const jumpForce = 0.2
+const jumpForce = 0.4
 const moveSpeed = 0.1
 
 let score = 0
