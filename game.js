@@ -5,14 +5,22 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 const renderer = new THREE.WebGLRenderer({ antialias: true })
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.shadowMap.enabled = true
+renderer.shadowMap.type = THREE.PCFSoftShadowMap
 document.body.appendChild(renderer.domElement)
 
 const ambientLight = new THREE.AmbientLight(0x404040, 2)
 scene.add(ambientLight)
 
 const sunLight = new THREE.DirectionalLight(0xffffff, 1)
-sunLight.position.set(5, 10, 7.5)
+sunLight.position.set(0, 20, 0)
 sunLight.castShadow = true
+sunLight.shadow.camera.left = -20
+sunLight.shadow.camera.right = 20
+sunLight.shadow.camera.top = 20
+sunLight.shadow.camera.bottom = -20
+sunLight.shadow.camera.near = 0.5
+sunLight.shadow.camera.far = 50
+sunLight.shadow.camera.updateProjectionMatrix()
 sunLight.shadow.mapSize.width = 1024
 sunLight.shadow.mapSize.height = 1024
 scene.add(sunLight)
@@ -31,6 +39,7 @@ function createPlatform(x, y, z, w, h, d) {
   const platform = new THREE.Mesh(geometry, material)
   platform.position.set(x, y, z)
   platform.receiveShadow = true
+  platform.castShadow = true
   scene.add(platform)
   platforms.push(platform)
 }
@@ -44,6 +53,7 @@ createPlatform(0, 8, 0, 5, 1, 5)
 const goalGeometry = new THREE.SphereGeometry(0.5, 32, 32)
 const goalMaterial = new THREE.MeshStandardMaterial({ color: 0xffff00 })
 const goal = new THREE.Mesh(goalGeometry, goalMaterial)
+goal.castShadow = true
 goal.position.set(0, 9, 0)
 scene.add(goal)
 
