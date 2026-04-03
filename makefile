@@ -10,7 +10,7 @@ js/three.min.js:
 	mkdir -p js
 	wget -O js/three.min.js https://unpkg.com/three@0.160.0/build/three.min.js
 
-test:
+test: js/three.min.js
 	uv run --with pytest-playwright==0.7.2 python -m playwright install chromium firefox
 	uv run --with pytest-playwright==0.7.2 python -m pytest
 
