@@ -46,7 +46,7 @@ function createPlatform(x, y, z, w, h, d) {
 
 createPlatform(0, 0, 0, 10, 1, 10)
 createPlatform(0, 2, -12, 5, 1, 5)
-createPlatform(8, 4, -12, 5, 1, 5)
+createPlatform(8, 4, -12, 5, 1, 10)
 createPlatform(8, 6, 0, 5, 1, 5)
 createPlatform(0, 8, 0, 5, 1, 5)
 
@@ -68,7 +68,7 @@ window.addEventListener('keyup', e => {
 let velocityY = 0
 let isGrounded = false
 const gravity = -0.01
-const jumpForce = 0.4
+const jumpForce = 0.35
 const moveSpeed = 0.1
 
 let score = 0
