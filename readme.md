@@ -11,9 +11,9 @@ Simple 3D platformer game built with Three.js. Players navigate platforms to rea
 
 ## Usage
 
-Run make to install dependencies
-Open index.html in a browser
-Use WASD to move and Space to jump
+1. Run make to install dependencies
+2. Open index.html in a browser
+3. Use WASD to move and Space to jump
 
 ## Testing
 
